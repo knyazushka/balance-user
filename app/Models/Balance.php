@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @property int $id
- * @property float $balance
+ * @property int $balance
  * @property CarbonImmutable|string $created_at
  * @property CarbonImmutable|string $updated_at
  * @property User $user
@@ -20,7 +20,8 @@ class Balance extends Model
     protected $guarded = ['id'];
 
     protected $fillable = [
-        'balance'
+        'balance',
+        'user_id',
     ];
 
     public function user(): BelongsTo

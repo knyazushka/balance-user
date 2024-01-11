@@ -4,6 +4,8 @@ namespace App\Repositories;
 
 use App\Contracts\UserRepositoryContract;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
 class UserRepository implements UserRepositoryContract
@@ -22,5 +24,11 @@ class UserRepository implements UserRepositoryContract
                 return $user;
             }
         );
+    }
+
+
+    public function byName(string $name): Builder|Model
+    {
+        return User::query()->where('name', $name)->first();
     }
 }

@@ -12,10 +12,10 @@ final class IdentityService
 {
     use HasAuthAndDatabase;
 
-    public function login(LoginPayload $payload): bool
+    public function login(array $attributes): bool
     {
         return $this->auth->attempt(
-            credentials: $payload->toArray(),
+            credentials: $attributes,
         );
     }
 

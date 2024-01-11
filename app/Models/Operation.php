@@ -14,7 +14,9 @@ class Operation extends Model
 
     protected $fillable = [
         'type',
+        'sum',
         'description',
+        'user_id'
     ];
 
     protected $casts = [

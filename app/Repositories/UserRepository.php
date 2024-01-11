@@ -12,9 +12,14 @@ class UserRepository implements UserRepositoryContract
     {
         return DB::transaction(
             callback: function () use ($attributes) {
-                return User::query()->create(
+
+                $user = User::query()->create(
                     attributes: $attributes
                 );
+
+                $user->balance()->create();
+
+                return $user;
             }
         );
     }

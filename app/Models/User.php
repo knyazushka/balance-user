@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Carbon\CarbonImmutable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -14,6 +16,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property string $email
  * @property CarbonImmutable|string $created_at
  * @property CarbonImmutable|string $updated_at
+ * @property Balance $balance
  */
 class User extends Authenticatable
 {
@@ -49,4 +52,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function balance(): HasOne
+    {
+        return $this->hasOne(
+            related: Balance::class,
+        );
+    }
+
+    public function operations(): HasMany
+    {
+        return $this->hasMany(
+            related: Operation::class,
+        );
+    }
 }

@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\BalanceController;
+use App\Http\Controllers\Api\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('/login', LoginController::class)->name('login');
+Route::middleware('auth:sanctum')
+    ->post('/balance', BalanceController::class)->name('balance');

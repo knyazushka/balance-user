@@ -1,29 +1,13 @@
-'use strict';
+import './bootstrap';
+import '../sass/app.scss'
+import store from "@/store";
+import router from "@/router";
+import {createApp} from "vue";
+import App from "@/App.vue";
 
-import 'bootstrap'
-import { createApp } from 'vue'
-import VueRouter from 'vue-router'
+const app = createApp(App)
 
-Vue.use(VueRouter)
+app.use(store);
+app.use(router);
 
-import App from "@/views/App.vue";
-import Login from "@/views/Login.vue";
-import Home from "@/views/Home.vue";
-
-const router = new VueRouter({
-    mode: 'history',
-    routes: [
-        {
-            path: '/',
-            name: 'home',
-            component: Home
-        },
-        {
-            path: '/login',
-            name: 'login',
-            component: Login
-        }
-    ]
-});
-
-createApp(App).use(router).mount('#app')
+app.mount('#app');

@@ -21,9 +21,12 @@ final class BalanceController extends Controller
 
         return response()->json(
             data: [
-                'balance' => $balance->balance
+                'balance' => $balance
             ],
             status: Status::OK->value,
+            headers: [
+                'Content-Type' => 'application/json'
+            ]
         );
     }
 }

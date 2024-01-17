@@ -26,7 +26,6 @@ class UserRepository implements UserRepositoryContract
         );
     }
 
-
     public function byName(string $name): Builder|Model
     {
         return User::query()->where('name', $name)->first();

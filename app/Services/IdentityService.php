@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-use App\Http\Payloads\LoginPayload;
 use App\Models\User;
 use App\Traits\HasAuthAndDatabase;
 use Illuminate\Contracts\Auth\Authenticatable;

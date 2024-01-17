@@ -6,6 +6,12 @@ use App\Enums\OperationType;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * @property int $id
+ * @property string $type
+ * @property string $description
+ * @property User $user
+ */
 class Operation extends Model
 {
     protected $table = 'operations';

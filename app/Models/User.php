@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Carbon\CarbonImmutable;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -17,6 +18,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property CarbonImmutable|string $created_at
  * @property CarbonImmutable|string $updated_at
  * @property Balance $balance
+ * @property Operation[]|Collection $operations
  */
 class User extends Authenticatable
 {

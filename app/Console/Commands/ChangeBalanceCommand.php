@@ -7,7 +7,6 @@ use App\Contracts\UserRepositoryContract;
 use App\Enums\OperationType;
 use App\Traits\ValidatesConsoleInput;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
 
@@ -18,6 +17,8 @@ class ChangeBalanceCommand extends Command
     protected $signature = 'app:change-balance {name : User name} {--operation= : Type operation} {--description= Description} {--sum= Operation sum}';
 
     protected $description = 'Change balance by user name';
+
+    protected $help = "Usage:\n app:change-balance example --operation=in --description=Test --sum=100";
 
     /**
      * @throws ValidationException
